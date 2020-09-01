@@ -4,11 +4,23 @@
 //   - `keyup` - return color change on press of shift
 //   - `focus` - text box mod
 //   - `blur` - text box mod
-//   - `resize` - new color on resize
+//   - `load` - background color to white
 //   - `wheel` - darken background when moving
-//   - `select` - selecting "welcome ot fun bus" will change top img
+//   - `resize` - selecting "welcome ot fun bus" will change top img
 //   - `dblclick` - fun bus to make smaller or bigger
 //   - `click` - top img to open in new window
+
+Array.from(document.links).forEach(function (link) {
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+  });
+});
+Array.from(document.all).forEach((element) => {
+  element.addEventListener("click", (event) => {
+    console.log("Current Target is: ", event.currentTarget);
+    event.stopPropagation();
+  });
+});
 
 // MOUSE OVER
 const links = document.querySelector("nav");
